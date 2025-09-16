@@ -100,7 +100,7 @@
   <div class="wrapper" role="document">
     <header>
       <div class="logo" aria-hidden="true">
-        <!-- Espacio para logo: reemplaza con <img src="ruta/logo.png" alt="Logo EstudioBeni"> -->
+       <img src="logo.png" alt="Logo EstudioBeni">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="2" y="4" width="20" height="16" rx="3" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
           <path d="M6 9h12" stroke="rgba(255,255,255,0.06)" stroke-width="1.2" stroke-linecap="round"/>
@@ -116,8 +116,8 @@
       <section class="card overview" aria-labelledby="overview-title">
         <h2 id="overview-title">Resumen del proyecto</h2>
         <p>
-          Esta página es la maqueta de un sistema para que los colegios lleven registro claro y ordenado de los
-          estudiantes que salen antes de la hora de salida. Permite registrar quién salió, curso, fecha, hora y motivo,
+          Esta página es la maqueta de un sistema para que el colegio San Francisco De Asis lleve registro claro y ordenado de los
+          estudiantes que salen antes de la hora de salida. Permite registrar quién salió, grado, fecha, hora y motivo,
           generando un historial que facilita el seguimiento y la comunicación con familias.
         </p>
 
@@ -132,7 +132,7 @@
         <div style="overflow:auto">
           <table>
             <thead>
-              <tr><th>Alumno</th><th>Curso</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
+              <tr><th>Alumno</th><th>Grado</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
             </thead>
             <tbody>
               <tr><td>María López</td><td>10°A</td><td>2025-09-12</td><td>10:45</td><td>Cita médica</td></tr>
@@ -149,7 +149,7 @@
         <p class="muted">Objetivo: reducir la desorganización y mejorar la trazabilidad de salidas tempranas.</p>
 
         <ol style="margin-top:12px;color:var(--muted);line-height:1.5">
-          <li>Registrar al alumno con nombre, curso y documento.</li>
+          <li>Registrar al alumno con nombre, grado y documento.</li>
           <li>Anotar motivo y adjuntar autorización (si aplica).</li>
           <li>Generar reporte semanal y exportarlo para la dirección.</li>
         </ol>
@@ -167,8 +167,13 @@
     </main>
 
     <footer>
-      <div class="small">EstudioBeni — Maqueta de proyecto</div>
-      <div class="small">© " + new Date().getFullYear() + " EstudioBeni</div>
+    <div id="fecha"></div>
+
+<script>
+  const hoy = new Date();
+  const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById("fecha").innerHTML = hoy.toLocaleDateString('es-ES', opciones);
+</script>
     </footer>
   </div>
 </body>
