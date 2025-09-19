@@ -13,7 +13,7 @@
     :root {
       --primary: #1E90FF; /* Azul dodger */
       --secondary: #4682B4; /* Azul acero */
-      --bg: #F0F4F8; /* Azul claro suave */
+      --bg: #FFFFFF; /* Fondo blanco para mejor contraste */
       --text: #2C3E50; /* Azul grisáceo oscuro */
       --muted: #7F8C8D; /* Azul grisáceo medio */
       --radius: 16px;
@@ -28,9 +28,14 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+    .container {
+      max-width: 1200px; /* Inspirado en Biofood */
+      margin: 0 auto;
+      padding: 0 20px; /* Padding interno para móviles */
+    }
     header {
       text-align: center;
-      padding: 120px 10%;
+      padding: 120px 0; /* Padding vertical amplio */
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       position: relative;
       overflow: hidden;
@@ -45,8 +50,8 @@
       opacity: 0.3;
       z-index: 0;
     }
-    header > * { position: relative; z-index: 1; }
-    .logo { width: 120px; height: 120px; margin: 0 auto 40px; border-radius: var(--radius); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; }
+    header > .container { position: relative; z-index: 1; }
+    .logo { width: 120px; height: 120px; margin: 0 auto 40px; border-radius: var(--radius); background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; }
     .logo img { width: 100px; height: 100px; object-fit: contain; }
     h1 { font-size: 56px; font-weight: 700; letter-spacing: 1px; color: #FFFFFF; margin-bottom: 20px; animation: slideUp 1s ease-out; }
     .subtitle { font-size: 22px; font-family: 'Open Sans'; color: #FFFFFF; margin: 20px 0; animation: fadeIn 1.2s ease-out; }
@@ -58,20 +63,20 @@
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
     section {
-      padding: 100px 10%;
-      width: 100%;
+      padding: 120px 0; /* Padding vertical amplio como Biofood */
     }
+    section .container { padding: 0 20px; } /* Padding interno para contenido */
     .card {
       background: transparent;
       padding: 0;
       border-radius: 0;
       border: none;
-      margin-bottom: 60px;
+      margin-bottom: 80px; /* Más espacio entre secciones */
       box-shadow: none;
       animation: slideUp 0.8s ease-out;
     }
     h2 { font-size: 36px; font-weight: 600; margin-bottom: 30px; color: var(--primary); }
-    p { font-family: 'Open Sans'; color: var(--muted); line-height: 1.8; }
+    p { font-family: 'Open Sans'; color: var(--muted); line-height: 1.8; margin-bottom: 40px; }
 
     .estadisticas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin: 60px 0; }
     .estadistica {
@@ -85,7 +90,7 @@
     .chart-container { max-width: 600px; margin: 40px auto; }
 
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 60px 0; }
-    .feature { background: rgba(255,255,255,0.8); padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; }
+    .feature { background: rgba(255,255,255,0.9); padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .feature:hover { transform: translateY(-10px); }
     .feature i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
     .feature h3 { font-size: 22px; font-weight: 600; margin-bottom: 15px; }
@@ -95,7 +100,7 @@
     .beneficios li { padding-left: 50px; position: relative; font-family: 'Open Sans'; font-size: 18px; }
     .beneficios li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); font-size: 28px; }
 
-    .table-container { overflow-x: auto; margin-top: 30px; position: relative; }
+    .table-container { overflow-x: auto; margin-top: 30px; }
     .filter-input { width: 100%; max-width: 300px; padding: 12px; margin-bottom: 20px; border: 1px solid var(--muted); border-radius: var(--radius); font-size: 16px; background: rgba(255,255,255,0.9); }
     table { width: 100%; border-collapse: collapse; font-family: 'Open Sans'; font-size: 16px; }
     th, td { padding: 18px; border: 1px solid rgba(70, 130, 180, 0.2); text-align: left; }
@@ -114,9 +119,10 @@
     .clear-btn:hover { background: #B0C4DE; }
 
     footer {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 100px 10%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 120px 0;
       text-align: center; width: 100%;
     }
+    footer .container { padding: 0 20px; }
     footer form { max-width: 700px; margin: 40px auto; display: grid; gap: 20px; }
     footer input, footer textarea { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: rgba(255,255,255,0.9); color: var(--text); font-size: 16px; }
     footer textarea { resize: vertical; min-height: 120px; }
@@ -132,6 +138,7 @@
     @media (max-width: 1024px) {
       .estadisticas { grid-template-columns: 1fr 1fr; }
       .features { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 15px; }
     }
     @media (max-width: 768px) {
       h1 { font-size: 40px; }
@@ -140,155 +147,172 @@
       table { font-size: 14px; }
       th, td { padding: 12px; }
       footer form { max-width: 100%; }
-      section { padding: 60px 5%; }
-      header { padding: 80px 5%; }
-      footer { padding: 60px 5%; }
+      section { padding: 60px 0; }
+      header { padding: 80px 0; }
+      footer { padding: 60px 0; }
+      .container { padding: 0 10px; }
     }
   </style>
 </head>
 <body>
   <header data-aos="fade-down">
-    <div class="logo" aria-hidden="true">
-      <img src="https://via.placeholder.com/100" alt="Logo EstudioBeni">
+    <div class="container">
+      <div class="logo" aria-hidden="true">
+        <img src="https://via.placeholder.com/100" alt="Logo EstudioBeni">
+      </div>
+      <h1>ExitSmart: Control Inteligente de Salidas</h1>
+      <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
+      <a href="#contacto" class="btn">Descubre Más</a>
     </div>
-    <h1>ExitSmart: Control Inteligente de Salidas</h1>
-    <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
-    <a href="#contacto" class="btn">Descubre Más</a>
   </header>
 
   <main>
     <section class="card" id="soluciones" aria-labelledby="soluciones-title" data-aos="fade-up">
-      <h2 id="soluciones-title">Transforma la Gestión de Salidas</h2>
-      <p>ExitSmart ofrece un sistema digital para registrar permisos de salida de estudiantes del Colegio San Francisco de Asís con precisión, seguridad y comunicación eficiente con las familias.</p>
-      <div class="estadisticas">
-        <div class="estadistica" data-aos="zoom-in"><strong>+95%</strong><span>Precisión en Registros</span></div>
-        <div class="estadistica" data-aos="zoom-in"><strong>+80%</strong><span>Reducción de Tiempo</span></div>
-        <div class="estadistica" data-aos="zoom-in"><strong>+100%</strong><span>Cumplimiento de Normas</span></div>
-      </div>
-      <div class="chart-container">
-        <canvas id="metricsChart"></canvas>
+      <div class="container">
+        <h2 id="soluciones-title">Transforma la Gestión de Salidas</h2>
+        <p>ExitSmart ofrece un sistema digital para registrar permisos de salida de estudiantes del Colegio San Francisco de Asís con precisión, seguridad y comunicación eficiente con las familias.</p>
+        <div class="estadisticas">
+          <div class="estadistica" data-aos="zoom-in"><strong>+95%</strong><span>Precisión en Registros</span></div>
+          <div class="estadistica" data-aos="zoom-in"><strong>+80%</strong><span>Reducción de Tiempo</span></div>
+          <div class="estadistica" data-aos="zoom-in"><strong>+100%</strong><span>Cumplimiento de Normas</span></div>
+        </div>
+        <div class="chart-container">
+          <canvas id="metricsChart"></canvas>
+        </div>
       </div>
     </section>
 
     <section class="card" id="funcionalidades" aria-labelledby="funcionalidades-title" data-aos="fade-up">
-      <h2 id="funcionalidades-title">Funcionalidades Clave</h2>
-      <div class="features">
-        <div class="feature" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-user-plus"></i>
-          <h3>Registro por Estudiante</h3>
-          <p>Ingresa datos como nombre, grado y motivo de salida de forma rápida.</p>
-        </div>
-        <div class="feature" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-calendar-alt"></i>
-          <h3>Historial por Fecha</h3>
-          <p>Consulta y filtra registros por fecha para un seguimiento claro.</p>
-        </div>
-        <div class="feature" data-aos="fade-up" data-aos-delay="300">
-          <i class="fas fa-lock"></i>
-          <h3>Motivo y Autorización</h3>
-          <p>Registra motivos y verifica autorizaciones para mayor seguridad.</p>
-        </div>
-        <div class="feature" data-aos="fade-up" data-aos-delay="400">
-          <i class="fas fa-file-export"></i>
-          <h3>Exportación de Datos</h3>
-          <p>Genera reportes en CSV o PDF para compartir con directivos.</p>
+      <div class="container">
+        <h2 id="funcionalidades-title">Funcionalidades Clave</h2>
+        <div class="features">
+          <div class="feature" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-user-plus"></i>
+            <h3>Registro por Estudiante</h3>
+            <p>Ingresa datos como nombre, grado y motivo de salida de forma rápida.</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Historial por Fecha</h3>
+            <p>Consulta y filtra registros por fecha para un seguimiento claro.</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-lock"></i>
+            <h3>Motivo y Autorización</h3>
+            <p>Registra motivos y verifica autorizaciones para mayor seguridad.</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-file-export"></i>
+            <h3>Exportación de Datos</h3>
+            <p>Genera reportes en CSV o PDF para compartir con directivos.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="card" id="beneficios" aria-labelledby="beneficios-title" data-aos="fade-up">
-      <h2 id="beneficios-title">Ventajas de ExitSmart</h2>
-      <div class="beneficios">
-        <ul>
-          <li><strong>Precisión Total</strong>: Registros digitales sin errores manuales.</li>
-          <li><strong>Seguridad Garantizada</strong>: Solo salidas autorizadas se registran.</li>
-          <li><strong>Comunicación Fluida</strong>: Historiales claros para familias.</li>
-          <li><strong>Eficiencia</strong>: Proceso rápido que reduce demoras.</li>
-          <li><strong>Control Completo</strong>: Reportes para analizar patrones.</li>
-          <li><strong>Escalabilidad</strong>: Adaptable a colegios de cualquier tamaño.</li>
-        </ul>
+      <div class="container">
+        <h2 id="beneficios-title">Ventajas de ExitSmart</h2>
+        <div class="beneficios">
+          <ul>
+            <li><strong>Precisión Total</strong>: Registros digitales sin errores manuales.</li>
+            <li><strong>Seguridad Garantizada</strong>: Solo salidas autorizadas se registran.</li>
+            <li><strong>Comunicación Fluida</strong>: Historiales claros para familias.</li>
+            <li><strong>Eficiencia</strong>: Proceso rápido que reduce demoras.</li>
+            <li><strong>Control Completo</strong>: Reportes para analizar patrones.</li>
+            <li><strong>Escalabilidad</strong>: Adaptable a colegios de cualquier tamaño.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="card" id="ejemplo" aria-labelledby="ejemplo-title" data-aos="fade-up">
-      <h2 id="ejemplo-title">Ejemplo de Registro</h2>
-      <p>Visualiza cómo ExitSmart organiza las salidas de estudiantes:</p>
-      <div class="table-container">
-        <input type="text" class="filter-input" placeholder="Filtrar registros..." onkeyup="filterTable()">
-        <table id="registros-table">
-          <thead>
-            <tr><th>Alumno</th><th>Grado</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>María López</td><td>10°A</td><td>2025-09-12</td><td>10:45</td><td>Cita médica</td></tr>
-            <tr><td>Carlos Díaz</td><td>8°B</td><td>2025-09-12</td><td>11:10</td><td>Permiso familiar</td></tr>
-            <tr><td>Sofía Pérez</td><td>11°C</td><td>2025-09-11</td><td>09:30</td><td>Salida programada</td></tr>
-          </tbody>
-        </table>
+      <div class="container">
+        <h2 id="ejemplo-title">Ejemplo de Registro</h2>
+        <p>Visualiza cómo ExitSmart organiza las salidas de estudiantes:</p>
+        <div class="table-container">
+          <input type="text" class="filter-input" placeholder="Filtrar registros..." onkeyup="filterTable()">
+          <table id="registros-table">
+            <thead>
+              <tr><th>Alumno</th><th>Grado</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>María López</td><td>10°A</td><td>2025-09-12</td><td>10:45</td><td>Cita médica</td></tr>
+              <tr><td>Carlos Díaz</td><td>8°B</td><td>2025-09-12</td><td>11:10</td><td>Permiso familiar</td></tr>
+              <tr><td>Sofía Pérez</td><td>11°C</td><td>2025-09-11</td><td>09:30</td><td>Salida programada</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <section class="card formulario" id="formulario" aria-labelledby="formulario-title" data-aos="fade-up">
-      <h2 id="formulario-title">Registrar Nueva Salida</h2>
-      <form id="registro-form">
-        <label for="alumno">Alumno</label>
-        <input type="text" id="alumno" required aria-required="true" placeholder="Ej. Juan Pérez">
-        <label for="grado">Grado</label>
-        <select id="grado" required aria-required="true">
-          <option value="" disabled selected>Selecciona un grado</option>
-          <option value="8°B">8°B</option>
-          <option value="10°A">10°A</option>
-          <option value="11°C">11°C</option>
-        </select>
-        <label for="fecha">Fecha</label>
-        <input type="date" id="fecha" required aria-required="true">
-        <label for="hora">Hora</label>
-        <input type="time" id="hora" required aria-required="true">
-        <label for="motivo">Motivo</label>
-        <input type="text" id="motivo" required aria-required="true" placeholder="Ej. Cita médica">
-        <button type="submit" class="btn">Agregar Registro</button>
-        <button type="button" class="btn clear-btn" onclick="document.getElementById('registro-form').reset()">Limpiar</button>
-      </form>
+      <div class="container">
+        <h2 id="formulario-title">Registrar Nueva Salida</h2>
+        <form id="registro-form">
+          <label for="alumno">Alumno</label>
+          <input type="text" id="alumno" required aria-required="true" placeholder="Ej. Juan Pérez">
+          <label for="grado">Grado</label>
+          <select id="grado" required aria-required="true">
+            <option value="" disabled selected>Selecciona un grado</option>
+            <option value="8°B">8°B</option>
+            <option value="10°A">10°A</option>
+            <option value="11°C">11°C</option>
+          </select>
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" required aria-required="true">
+          <label for="hora">Hora</label>
+          <input type="time" id="hora" required aria-required="true">
+          <label for="motivo">Motivo</label>
+          <input type="text" id="motivo" required aria-required="true" placeholder="Ej. Cita médica">
+          <button type="submit" class="btn">Agregar Registro</button>
+          <button type="button" class="btn clear-btn" onclick="document.getElementById('registro-form').reset()">Limpiar</button>
+        </form>
+      </div>
     </section>
 
     <section class="card" id="diseño" aria-labelledby="diseño-title" data-aos="fade-up">
-      <h2 id="diseño-title">Diseño de Alta Calidad</h2>
-      <p>ExitSmart combina estética y funcionalidad con:</p>
-      <div class="beneficios">
-        <ul>
-          <li><strong>Estilo Moderno</strong>: Gradientes vibrantes y animaciones suaves.</li>
-          <li><strong>Interfaz Clara</strong>: Navegación intuitiva y fácil de usar.</li>
-          <li><strong>Texto Atractivo</strong>: Fuentes elegantes y espaciado perfecto.</li>
-          <li><strong>Adaptabilidad</strong>: Funciona en cualquier dispositivo.</li>
-          <li><strong>Accesibilidad</strong>: Diseñado para todos los usuarios.</li>
-        </ul>
+      <div class="container">
+        <h2 id="diseño-title">Diseño de Alta Calidad</h2>
+        <p>ExitSmart combina estética y funcionalidad con:</p>
+        <div class="beneficios">
+          <ul>
+            <li><strong>Estilo Moderno</strong>: Gradientes vibrantes y animaciones suaves.</li>
+            <li><strong>Interfaz Clara</strong>: Navegación intuitiva y fácil de usar.</li>
+            <li><strong>Texto Atractivo</strong>: Fuentes elegantes y espaciado perfecto.</li>
+            <li><strong>Adaptabilidad</strong>: Funciona en cualquier dispositivo.</li>
+            <li><strong>Accesibilidad</strong>: Diseñado para todos los usuarios.</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
   <footer id="contacto" data-aos="fade-up">
-    <h2>Contáctanos</h2>
-    <p>¿Te interesa implementar ExitSmart en tu colegio? ¡Escríbenos!</p>
-    <form>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" required aria-required="true" placeholder="Tu nombre">
-      <label for="email">Correo</label>
-      <input type="email" id="email" required aria-required="true" placeholder="tu@correo.com">
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" required aria-required="true" placeholder="Escribe tu mensaje"></textarea>
-      <button type="submit" class="btn">Enviar</button>
-    </form>
-    <div class="social-icons">
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <div class="container">
+      <h2>Contáctanos</h2>
+      <p>¿Te interesa implementar ExitSmart en tu colegio? ¡Escríbenos!</p>
+      <form>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required aria-required="true" placeholder="Tu nombre">
+        <label for="email">Correo</label>
+        <input type="email" id="email" required aria-required="true" placeholder="tu@correo.com">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" required aria-required="true" placeholder="Escribe tu mensaje"></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <p class="small">© 2025 EstudioBeni - Proyecto SENA. Todos los derechos reservados.</p>
+      <p class="small" id="fecha"></p>
     </div>
-    <p class="small">© 2025 EstudioBeni - Proyecto SENA. Todos los derechos reservados.</p>
-    <p class="small" id="fecha"></p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     AOS.init();
 
