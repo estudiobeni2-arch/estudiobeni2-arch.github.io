@@ -11,17 +11,17 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #1E90FF; /* Azul dodger */
-      --secondary: #4682B4; /* Azul acero */
-      --bg: #FFFFFF; /* Fondo blanco para mejor contraste */
-      --text: #2C3E50; /* Azul grisáceo oscuro */
-      --muted: #7F8C8D; /* Azul grisáceo medio */
+      --primary: #3498DB; /* Azul claro vibrante */
+      --secondary: #2980B9; /* Azul más oscuro legible */
+      --bg: #F9FBFC; /* Fondo claro con textura */
+      --text: #1A252F; /* Gris azulado oscuro */
+      --muted: #5D6D7E; /* Gris azulado medio */
       --radius: 16px;
       font-family: 'Poppins', 'Open Sans', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: var(--bg);
+      background: var(--bg) url('https://www.transparenttextures.com/patterns/rice-paper.png');
       color: var(--text);
       font-size: 18px;
       line-height: 1.6;
@@ -29,19 +29,34 @@
       overflow-x: hidden;
     }
     .container {
-      max-width: 1200px; /* Inspirado en Biofood */
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px; /* Padding interno para móviles */
+      padding: 0 20px;
     }
     header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(52, 152, 219, 0.9); /* Fondo semi-transparente con nuevo azul */
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-menu { list-style: none; display: flex; gap: 20px; }
+    .nav-menu a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
+    .nav-menu a:hover { color: var(--secondary); }
+    .logo { width: 100px; height: 100px; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; }
+    .hero {
       text-align: center;
-      padding: 120px 0; /* Padding vertical amplio */
+      padding: 150px 0 100px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       position: relative;
       overflow: hidden;
-      width: 100%;
+      margin-top: 70px;
     }
-    header::before {
+    .hero::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
@@ -50,9 +65,7 @@
       opacity: 0.3;
       z-index: 0;
     }
-    header > .container { position: relative; z-index: 1; }
-    .logo { width: 120px; height: 120px; margin: 0 auto 40px; border-radius: var(--radius); background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; }
-    .logo img { width: 100px; height: 100px; object-fit: contain; }
+    .hero > .container { position: relative; z-index: 1; }
     h1 { font-size: 56px; font-weight: 700; letter-spacing: 1px; color: #FFFFFF; margin-bottom: 20px; animation: slideUp 1s ease-out; }
     .subtitle { font-size: 22px; font-family: 'Open Sans'; color: #FFFFFF; margin: 20px 0; animation: fadeIn 1.2s ease-out; }
     .btn {
@@ -63,15 +76,15 @@
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
     section {
-      padding: 120px 0; /* Padding vertical amplio como Biofood */
+      padding: 120px 0;
     }
-    section .container { padding: 0 20px; } /* Padding interno para contenido */
+    section .container { padding: 0 20px; }
     .card {
       background: transparent;
       padding: 0;
       border-radius: 0;
       border: none;
-      margin-bottom: 80px; /* Más espacio entre secciones */
+      margin-bottom: 80px;
       box-shadow: none;
       animation: slideUp 0.8s ease-out;
     }
@@ -87,14 +100,26 @@
     .estadistica strong { font-size: 3.5em; font-weight: 700; display: block; }
     .estadistica span { font-size: 18px; font-family: 'Open Sans'; }
 
-    .chart-container { max-width: 600px; margin: 40px auto; }
-
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 60px 0; }
     .feature { background: rgba(255,255,255,0.9); padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .feature:hover { transform: translateY(-10px); }
     .feature i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
     .feature h3 { font-size: 22px; font-weight: 600; margin-bottom: 15px; }
     .feature p { font-size: 16px; }
+
+    .testimonios { background: rgba(255,255,255,0.95); padding: 60px 0; }
+    .testimonio { max-width: 800px; margin: 0 auto 40px; text-align: center; }
+    .testimonio p { font-style: italic; color: var(--text); }
+    .testimonio cite { display: block; margin-top: 10px; font-weight: 600; color: var(--primary); }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 80px 0;
+      text-align: center;
+      color: #FFFFFF;
+    }
+    .cta h2 { margin-bottom: 20px; }
+    .cta .btn { background: #FFFFFF; color: var(--primary); }
 
     .beneficios ul { list-style: none; padding: 0; display: grid; gap: 30px; margin: 60px 0; }
     .beneficios li { padding-left: 50px; position: relative; font-family: 'Open Sans'; font-size: 18px; }
@@ -103,11 +128,11 @@
     .table-container { overflow-x: auto; margin-top: 30px; }
     .filter-input { width: 100%; max-width: 300px; padding: 12px; margin-bottom: 20px; border: 1px solid var(--muted); border-radius: var(--radius); font-size: 16px; background: rgba(255,255,255,0.9); }
     table { width: 100%; border-collapse: collapse; font-family: 'Open Sans'; font-size: 16px; }
-    th, td { padding: 18px; border: 1px solid rgba(70, 130, 180, 0.2); text-align: left; }
+    th, td { padding: 18px; border: 1px solid rgba(41, 128, 185, 0.2); text-align: left; } /* Ajuste de borde */
     th { background: rgba(255,255,255,0.9); color: var(--muted); font-weight: 600; }
     tbody tr { transition: background 0.3s; }
     tbody tr:hover { background: linear-gradient(90deg, var(--primary), transparent); }
-    tbody tr.highlight { background: rgba(30, 144, 255, 0.2); }
+    tbody tr.highlight { background: rgba(52, 152, 219, 0.2); }
 
     .formulario form { display: grid; gap: 20px; max-width: 700px; margin: 60px auto; }
     .formulario label { font-size: 18px; font-weight: 600; color: var(--primary); }
@@ -119,8 +144,10 @@
     .clear-btn:hover { background: #B0C4DE; }
 
     footer {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 120px 0;
-      text-align: center; width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 120px 0;
+      text-align: center;
+      width: 100%;
     }
     footer .container { padding: 0 20px; }
     footer form { max-width: 700px; margin: 40px auto; display: grid; gap: 20px; }
@@ -128,7 +155,10 @@
     footer textarea { resize: vertical; min-height: 120px; }
     footer button { background: var(--secondary); color: #FFFFFF; padding: 16px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; }
     footer button:hover { background: var(--primary); }
-    .social-icons { margin: 40px 0; }
+    .footer-links { margin: 30px 0; }
+    .footer-links a { color: #FFFFFF; margin: 0 15px; text-decoration: none; }
+    .footer-links a:hover { color: var(--secondary); }
+    .social-icons { margin: 30px 0; }
     .social-icons a { color: #FFFFFF; margin: 0 20px; font-size: 32px; transition: color 0.3s; }
     .social-icons a:hover { color: var(--primary); }
     .small { font-size: 16px; font-family: 'Open Sans'; color: #FFFFFF; margin-top: 10px; }
@@ -139,6 +169,7 @@
       .estadisticas { grid-template-columns: 1fr 1fr; }
       .features { grid-template-columns: 1fr 1fr; }
       .container { padding: 0 15px; }
+      .nav-menu { flex-direction: column; align-items: center; gap: 10px; }
     }
     @media (max-width: 768px) {
       h1 { font-size: 40px; }
@@ -148,7 +179,8 @@
       th, td { padding: 12px; }
       footer form { max-width: 100%; }
       section { padding: 60px 0; }
-      header { padding: 80px 0; }
+      header { padding: 10px 0; }
+      .hero { padding: 100px 0 60px; margin-top: 50px; }
       footer { padding: 60px 0; }
       .container { padding: 0 10px; }
     }
@@ -160,11 +192,25 @@
       <div class="logo" aria-hidden="true">
         <img src="https://via.placeholder.com/100" alt="Logo EstudioBeni">
       </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#soluciones">Soluciones</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#ejemplo">Ejemplo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" data-aos="fade-up">
+    <div class="container">
       <h1>ExitSmart: Control Inteligente de Salidas</h1>
       <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
       <a href="#contacto" class="btn">Descubre Más</a>
     </div>
-  </header>
+  </div>
 
   <main>
     <section class="card" id="soluciones" aria-labelledby="soluciones-title" data-aos="fade-up">
@@ -175,9 +221,6 @@
           <div class="estadistica" data-aos="zoom-in"><strong>+95%</strong><span>Precisión en Registros</span></div>
           <div class="estadistica" data-aos="zoom-in"><strong>+80%</strong><span>Reducción de Tiempo</span></div>
           <div class="estadistica" data-aos="zoom-in"><strong>+100%</strong><span>Cumplimiento de Normas</span></div>
-        </div>
-        <div class="chart-container">
-          <canvas id="metricsChart"></canvas>
         </div>
       </div>
     </section>
@@ -222,6 +265,20 @@
             <li><strong>Control Completo</strong>: Reportes para analizar patrones.</li>
             <li><strong>Escalabilidad</strong>: Adaptable a colegios de cualquier tamaño.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card testimonios" id="testimonios" aria-labelledby="testimonios-title" data-aos="fade-up">
+      <div class="container">
+        <h2 id="testimonios-title">Lo que Dicen Nuestros Usuarios</h2>
+        <div class="testimonio">
+          <p>"ExitSmart ha transformado la forma en que gestionamos las salidas. ¡Todo es más rápido y seguro!"</p>
+          <cite>María Gómez - Directora, Colegio San Francisco</cite>
+        </div>
+        <div class="testimonio">
+          <p>"La precisión y la facilidad de uso son increíbles. Recomiendo este sistema a cualquier colegio."</p>
+          <cite>Juan Pérez - Profesor</cite>
         </div>
       </div>
     </section>
@@ -286,6 +343,14 @@
         </div>
       </div>
     </section>
+
+    <section class="cta" id="cta" data-aos="fade-up">
+      <div class="container">
+        <h2>¡Transforma tu Colegio Hoy!</h2>
+        <p>Regístrate o contáctanos para una demostración gratuita.</p>
+        <a href="#contacto" class="btn">Contactar Ahora</a>
+      </div>
+    </section>
   </main>
 
   <footer id="contacto" data-aos="fade-up">
@@ -301,6 +366,12 @@
         <textarea id="mensaje" required aria-required="true" placeholder="Escribe tu mensaje"></textarea>
         <button type="submit" class="btn">Enviar</button>
       </form>
+      <div class="footer-links">
+        <a href="#soluciones">Soluciones</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
       <div class="social-icons">
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -312,7 +383,6 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     AOS.init();
 
@@ -352,22 +422,6 @@
         rows[i].style.display = text.includes(filter) ? '' : 'none';
       }
     }
-
-    // Gráfico de métricas con Chart.js
-    const ctx = document.getElementById('metricsChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Precisión en Registros', 'Reducción de Tiempo', 'Cumplimiento de Normas'],
-        datasets: [{
-          data: [95, 80, 100],
-          backgroundColor: ['#1E90FF', '#4682B4', '#2C3E50']
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
   </script>
 </body>
 </html>
