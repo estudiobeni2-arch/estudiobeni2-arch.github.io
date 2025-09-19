@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="ExitSmart es un sistema innovador para el control de permisos de salida de estudiantes en colegios, optimizando seguridad y comunicación con familias.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ExitSmart es un sistema innovador para el control de permisos de salida de estudiantes en colegios, optimizando seguridad y comunicación.">
   <meta name="keywords" content="control salidas escolares, permisos estudiantes, software escolar, proyecto SENA">
   <title>ExitSmart - Control de Salidas Tempranas - EstudioBeni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f1724; /* dark navy */
+      --bg: #0f1724; /* Navy oscuro */
       --card: #0b1220;
-      --muted: #b0b8c4; /* Más claro para mejor contraste */
-      --accent: #ffb703; /* amarillo cálido */
+      --muted: #b0b8c4; /* Texto más claro */
+      --accent: #ffb703; /* Amarillo cálido */
+      --secondary: #4FC3F7; /* Azul claro */
       --glass: rgba(255,255,255,0.03);
       --radius: 14px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: 'Poppins', Inter, system-ui, sans-serif;
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      background: linear-gradient(180deg, #071029 0%, #081426 60%);
+      background: linear-gradient(180deg, #071029 0%, #081426 100%);
       color: #e6eef8;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      padding: 32px;
       font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 20px;
     }
     .wrapper {
-      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -39,74 +38,87 @@
     }
     header {
       text-align: center;
-      padding: 60px 28px;
-      background: linear-gradient(90deg, var(--accent), #081426);
-      border-bottom: 1px solid rgba(255,255,255,0.02);
+      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+      position: relative;
+      overflow: hidden;
     }
-    .logo {
-      width: 64px; height: 64px;
-      border-radius: 12px;
-      background: var(--glass);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 10px;
-      border: 1px solid rgba(255,255,255,0.04);
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://via.placeholder.com/1200x400') center/cover no-repeat; /* Placeholder para imagen hero */
+      opacity: 0.2;
+      z-index: 0;
     }
-    .logo img { width: 44px; height: 44px; object-fit: contain; }
-    h1 { font-size: 32px; letter-spacing: 0.4px; margin: 0; }
-    .subtitle { font-size: 16px; color: var(--muted); margin-top: 8px; }
+    header > * { position: relative; z-index: 1; }
+    .logo { width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 16px; background: var(--glass); display: flex; align-items: center; justify-content: center; }
+    .logo img { width: 60px; height: 60px; object-fit: contain; }
+    h1 { font-size: 40px; font-weight: 700; animation: fadeIn 1s ease-out; }
+    .subtitle { font-size: 18px; color: var(--muted); margin: 10px 0; animation: fadeIn 1.2s ease-out; }
     .btn-contacto {
-      display: inline-block; margin-top: 20px; padding: 12px 24px;
-      background: var(--accent); color: #081026; text-decoration: none;
-      border-radius: 10px; font-weight: bold;
+      display: inline-block; padding: 12px 30px; background: var(--secondary); color: #fff;
+      text-decoration: none; border-radius: 10px; font-weight: 600; transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeIn 1.4s ease-out;
     }
+    .btn-contacto:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-    main { display: grid; grid-template-columns: 1fr 420px; gap: 28px; padding: 28px; }
+    section { padding: 40px 20px; }
     .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      padding: 20px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.02);
+      background: var(--glass); padding: 20px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.02); margin-bottom: 20px;
+      animation: slideUp 0.8s ease-out;
     }
-    .overview h2 { margin: 0 0 8px; }
-    .overview p { color: var(--muted); line-height: 1.5; }
-    .features { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .feature { background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 10px; font-size: 14px; color: var(--muted); }
-
     .estadisticas { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0; }
     .estadisticas div {
-      flex: 1; min-width: 200px; margin: 10px; padding: 20px;
-      background: var(--glass); border-radius: 10px; text-align: center;
+      flex: 1; min-width: 200px; margin: 10px; padding: 20px; text-align: center;
+      background: linear-gradient(135deg, var(--accent), var(--secondary)); border-radius: 12px;
+      color: #fff; font-weight: 600; transition: transform 0.3s;
     }
-    .estadisticas strong { font-size: 2em; color: var(--accent); display: block; }
+    .estadisticas div:hover { transform: translateY(-5px); }
+    .estadisticas strong { font-size: 2.5em; display: block; }
+    .estadisticas span { font-size: 14px; color: #e6eef8; }
 
-    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
-    thead th { text-align: left; padding: 10px 12px; background: rgba(255,255,255,0.01); font-weight: 600; color: var(--muted); font-size: 13px; }
-    tbody td { padding: 10px 12px; border-top: 1px dashed rgba(255,255,255,0.02); }
-    tbody tr:hover td { background: linear-gradient(90deg, rgba(255,255,255,0.01), transparent); }
-    .table-container { overflow-x: auto; } /* Responsividad para tabla */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+    .feature { background: var(--card); padding: 15px; border-radius: 10px; text-align: center; transition: transform 0.3s; }
+    .feature:hover { transform: translateY(-5px); }
+    .feature-icon { font-size: 24px; color: var(--accent); margin-bottom: 10px; } /* Placeholder para íconos */
 
-    .quick h3 { margin: 0 0 8px; }
-    .muted { color: var(--muted); font-size: 14px; }
-    .actions { display: flex; gap: 10px; margin-top: 14px; }
-    .btn { padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; font-weight: 600; }
-    .btn.primary { background: linear-gradient(90deg, var(--accent), #ffb84a); color: #081026; }
-    .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.04); color: var(--muted); }
+    #beneficios ul { list-style: none; padding: 0; }
+    #beneficios li { margin-bottom: 15px; padding-left: 35px; position: relative; }
+    #beneficios li::before { content: "✔"; position: absolute; left: 0; color: var(--accent); font-size: 20px; }
 
-    #beneficios ul { list-style-type: none; padding: 0; }
-    #beneficios li { margin-bottom: 10px; padding-left: 30px; position: relative; }
-    #beneficios li::before { content: "✔"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+    .table-container { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+    th, td { padding: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
+    th { background: var(--card); color: var(--muted); font-weight: 600; }
+    tbody tr { transition: background 0.3s; }
+    tbody tr:hover { background: linear-gradient(90deg, var(--accent), transparent); }
 
-    #formulario form { display: grid; gap: 10px; margin-top: 20px; }
-    #formulario input, #formulario select { padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: var(--card); color: #e6eef8; }
-    #formulario button { background: var(--accent); color: #081026; padding: 12px; border: none; border-radius: 8px; cursor: pointer; }
+    #formulario form { display: grid; gap: 15px; margin-top: 20px; }
+    #formulario input, #formulario select { padding: 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--card); color: #e6eef8; }
+    #formulario input:focus, #formulario select:focus { outline: none; border-color: var(--secondary); }
+    #formulario button { background: var(--accent); color: #081026; padding: 12px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+    #formulario button:hover { background: var(--secondary); }
 
-    footer { padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.02); text-align: center; }
-    .small { font-size: 13px; color: var(--muted); }
+    footer { background: linear-gradient(135deg, var(--accent), var(--secondary)); padding: 40px 20px; text-align: center; }
+    footer form { max-width: 500px; margin: 20px auto; display: grid; gap: 15px; }
+    footer input, footer textarea { padding: 12px; border-radius: 8px; border: 1px solid var(--muted); background: var(--card); color: #e6eef8; }
+    footer button { background: var(--secondary); color: #fff; padding: 12px; border: none; border-radius: 8px; cursor: pointer; }
+    .social-icons { margin-top: 20px; }
+    .social-icons a { color: #e6eef8; margin: 0 10px; font-size: 24px; text-decoration: none; }
 
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @media (max-width: 880px) {
-      main { grid-template-columns: 1fr; }
-      .wrapper { margin: 16px; }
+      .wrapper { margin: 10px; }
       .estadisticas div { min-width: 150px; }
+      .features { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      .subtitle { font-size: 16px; }
       table { font-size: 12px; }
       th, td { padding: 8px; }
     }
@@ -116,47 +128,59 @@
   <div class="wrapper" role="document">
     <header>
       <div class="logo" aria-hidden="true">
-        <!-- Cambia por la URL de tu logo o súbelo al repositorio -->
-        <img src="https://via.placeholder.com/44" alt="Logo EstudioBeni">
+        <img src="https://via.placeholder.com/60" alt="Logo EstudioBeni">
       </div>
-      <h1>Transformando el Control de Salidas en Colegios</h1>
-      <div class="subtitle">ExitSmart — Proyecto SENA</div>
-      <a href="#contacto" class="btn-contacto">Contáctenos</a>
+      <h1>ExitSmart: Control Inteligente de Salidas</h1>
+      <div class="subtitle">La solución moderna para gestionar permisos de salida en colegios</div>
+      <a href="#contacto" class="btn-contacto">Descubre Más</a>
     </header>
 
     <main>
-      <section class="card overview" aria-labelledby="overview-title">
-        <h2 id="overview-title">¡La solución integral para salidas tempranas!</h2>
-        <p>
-          ExitSmart es una maqueta del sistema diseñado para el control de permisos de salida de los <strong>estudiantes</strong> del Colegio San Francisco de Asís. Registra de forma precisa y organizada quién sale, cuándo y por qué, generando historiales completos que facilitan el seguimiento y la comunicación con las familias.
-        </p>
+      <section class="card" id="soluciones" aria-labelledby="soluciones-title">
+        <h2 id="soluciones-title">Solución Integral para Colegios</h2>
+        <p>ExitSmart transforma la gestión de salidas tempranas en el Colegio San Francisco de Asís, con un sistema digital que registra datos precisos y genera historiales para facilitar la comunicación con familias.</p>
         <div class="estadisticas">
-          <div><strong>+500</strong> Estudiantes Registrados</div>
-          <div><strong>+50</strong> Colegios Beneficiados</div>
-          <div><strong>+10K</strong> Registros Procesados</div>
+          <div><strong>+500</strong><span>Estudiantes Registrados</span></div>
+          <div><strong>+50</strong><span>Colegios Beneficiados</span></div>
+          <div><strong>+10K</strong><span>Registros Procesados</span></div>
         </div>
       </section>
 
       <section class="card" id="funcionalidades" aria-labelledby="funcionalidades-title">
         <h2 id="funcionalidades-title">Funcionalidades Principales</h2>
         <div class="features">
-          <span class="feature">Registro por estudiante</span>
-          <span class="feature">Historial por fecha</span>
-          <span class="feature">Motivo y autorización</span>
-          <span class="feature">Exportación de datos</span>
+          <div class="feature">
+            <div class="feature-icon">📋</div>
+            <h3>Registro por Estudiante</h3>
+            <p>Ingresa datos como nombre, grado y motivo de salida rápidamente.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📅</div>
+            <h3>Historial por Fecha</h3>
+            <p>Accede a registros filtrables por fecha para un seguimiento claro.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Motivo y Autorización</h3>
+            <p>Registra motivos y verifica autorizaciones para mayor seguridad.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📤</div>
+            <h3>Exportación de Datos</h3>
+            <p>Genera reportes en CSV o PDF para compartir con directivos.</p>
+          </div>
         </div>
       </section>
 
       <section class="card" id="beneficios" aria-labelledby="beneficios-title">
         <h2 id="beneficios-title">Fortalezas de ExitSmart</h2>
-        <p>ExitSmart ofrece beneficios clave para colegios, profesores y familias:</p>
         <ul>
-          <li><strong>Precisión en Registros</strong>: Elimina errores manuales con un sistema digital automatizado.</li>
-          <li><strong>Seguridad Mejorada</strong>: Solo registra salidas autorizadas, previniendo incidencias.</li>
-          <li><strong>Comunicación Eficiente</strong>: Historiales compartibles para tranquilidad de las familias.</li>
-          <li><strong>Ahorro de Tiempo</strong>: Agiliza el proceso durante el día escolar, reduciendo demoras.</li>
-          <li><strong>Control Completo</strong>: Reportes y estadísticas para analizar patrones de salidas.</li>
-          <li><strong>Escalabilidad</strong>: Adaptable a cualquier colegio, con potencial para apps móviles.</li>
+          <li>Precisión: Elimina errores manuales con registros digitales.</li>
+          <li>Seguridad: Solo salidas autorizadas, previniendo incidencias.</li>
+          <li>Comunicación: Historiales claros para tranquilidad de familias.</li>
+          <li>Eficiencia: Agiliza el proceso, reduciendo demoras.</li>
+          <li>Control: Reportes y estadísticas para decisiones informadas.</li>
+          <li>Escalabilidad: Adaptable a cualquier colegio, con potencial móvil.</li>
         </ul>
       </section>
 
@@ -174,101 +198,87 @@
             </tbody>
           </table>
         </div>
+        <!-- Placeholder para imagen -->
+        <!-- <img src="https://via.placeholder.com/600x300" alt="Mockup de interfaz ExitSmart" style="width:100%; margin-top:20px; border-radius:10px;"> -->
       </section>
 
       <section class="card" id="formulario" aria-labelledby="formulario-title">
         <h2 id="formulario-title">Registrar Nueva Salida</h2>
         <form id="registro-form">
           <label for="alumno">Alumno:</label>
-          <input type="text" id="alumno" required>
+          <input type="text" id="alumno" required aria-required="true">
           <label for="grado">Grado:</label>
-          <select id="grado" required>
+          <select id="grado" required aria-required="true">
             <option value="8°B">8°B</option>
             <option value="10°A">10°A</option>
             <option value="11°C">11°C</option>
           </select>
           <label for="fecha">Fecha:</label>
-          <input type="date" id="fecha" required>
+          <input type="date" id="fecha" required aria-required="true">
           <label for="hora">Hora:</label>
-          <input type="time" id="hora" required>
+          <input type="time" id="hora" required aria-required="true">
           <label for="motivo">Motivo:</label>
-          <input type="text" id="motivo" required>
-          <button type="submit" class="btn primary">Agregar Registro</button>
+          <input type="text" id="motivo" required aria-required="true">
+          <button type="submit" class="btn">Agregar Registro</button>
         </form>
       </section>
-
-      <aside class="card quick" aria-labelledby="quick-title">
-        <h3 id="quick-title">Guía Rápida</h3>
-        <p class="muted">Objetivo: Aumentar la organización y mejorar la trazabilidad de las salidas tempranas.</p>
-        <ol class="muted">
-          <li>Registrar al alumno con nombre, grado y documento.</li>
-          <li>Anotar motivo y adjuntar autorización (si aplica).</li>
-          <li>Generar reporte semanal y exportarlo para la dirección.</li>
-        </ol>
-        <div class="actions">
-          <button class="btn primary" onclick="alert('Función de exportación en desarrollo')">Exportar CSV</button>
-          <button class="btn ghost" onclick="alert('Historial disponible pronto')">Ver historial</button>
-        </div>
-        <div class="muted" style="margin-top:14px;font-size:13px;">
-          <strong>Tecnologías:</strong>
-          <div style="margin-top:6px">Frontend: HTML/CSS/JS — Backend: PHP — DB: MySQL/PostgreSQL</div>
-        </div>
-      </aside>
 
       <section class="card" id="diseño" aria-labelledby="diseño-title">
-        <h2 id="diseño-title">Fortalezas del Diseño</h2>
-        <p>El diseño de ExitSmart está inspirado en soluciones modernas como Biofood, priorizando:</p>
+        <h2 id="diseño-title">Un Diseño Excepcional</h2>
+        <p>Inspirado en soluciones modernas como Biofood, ExitSmart ofrece:</p>
         <ul>
-          <li><strong>Interfaz Intuitiva</strong>: Navegación clara con secciones organizadas para fácil uso.</li>
-          <li><strong>Diseño Moderno</strong>: Gradientes y glassmorphism para un look profesional y atractivo.</li>
-          <li><strong>Responsividad</strong>: Adaptable a móviles y desktops, con tablas optimizadas.</li>
-          <li><strong>Accesibilidad</strong>: Etiquetas semánticas y ARIA para usuarios con discapacidades.</li>
-          <li><strong>Escalabilidad</strong>: Preparado para integrar backend y funcionalidades avanzadas.</li>
+          <li><strong>Estética Moderna</strong>: Gradientes, glassmorphism y colores vibrantes para un look profesional.</li>
+          <li><strong>Interfaz Intuitiva</strong>: Navegación clara y formularios fáciles de usar.</li>
+          <li><strong>Animaciones Suaves</strong>: Efectos de entrada y hover para una experiencia dinámica.</li>
+          <li><strong>Responsividad Total</strong>: Perfecto en móviles, tablets y desktops.</li>
+          <li><strong>Accesibilidad</strong>: Etiquetas ARIA y alto contraste para todos los usuarios.</li>
         </ul>
-      </section>
-
-      <section class="card" id="contacto" aria-labelledby="contacto-title">
-        <h2 id="contacto-title">Contáctenos</h2>
-        <p>¿Interesado en implementar ExitSmart en tu colegio? ¡Déjanos un mensaje!</p>
-        <form>
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" required>
-          <label for="email">Correo:</label>
-          <input type="email" id="email" required>
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" required></textarea>
-          <button type="submit" class="btn primary">Enviar</button>
-        </form>
+        <!-- Placeholder para imagen -->
+        <!-- <img src="https://via.placeholder.com/600x300" alt="Diseño de ExitSmart en acción" style="width:100%; margin-top:20px; border-radius:10px;"> -->
       </section>
     </main>
 
-    <footer>
-      <p class="small">© 2025 EstudioBeni - Proyecto SENA. Desarrollado con pasión para mejorar la gestión escolar.</p>
+    <footer id="contacto">
+      <h2>Contáctenos</h2>
+      <p>¿Quieres implementar ExitSmart en tu colegio? ¡Déjanos un mensaje!</p>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required aria-required="true">
+        <label for="email">Correo:</label>
+        <input type="email" id="email" required aria-required="true">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" required aria-required="true"></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><span style="font-size:24px;">🐦</span></a>
+        <a href="#" aria-label="GitHub"><span style="font-size:24px;">💻</span></a>
+      </div>
+      <p class="small">© 2025 EstudioBeni - Proyecto SENA. Desarrollado con pasión.</p>
       <p class="small" id="fecha"></p>
     </footer>
-  </div>
 
-  <script>
-    // Mostrar fecha en footer
-    const hoy = new Date();
-    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("fecha").innerHTML = hoy.toLocaleDateString('es-ES', opciones);
+    <script>
+      // Fecha en footer
+      const hoy = new Date();
+      const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById("fecha").innerHTML = hoy.toLocaleDateString('es-ES', opciones);
 
-    // Agregar registros dinámicamente a la tabla
-    const form = document.getElementById('registro-form');
-    const tableBody = document.querySelector('#registros-table tbody');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const alumno = document.getElementById('alumno').value;
-      const grado = document.getElementById('grado').value;
-      const fecha = document.getElementById('fecha').value;
-      const hora = document.getElementById('hora').value;
-      const motivo = document.getElementById('motivo').value;
-      const row = document.createElement('tr');
-      row.innerHTML = `<td>${alumno}</td><td>${grado}</td><td>${fecha}</td><td>${hora}</td><td>${motivo}</td>`;
-      tableBody.appendChild(row);
-      form.reset();
-    });
-  </script>
+      // Agregar registros a la tabla
+      const form = document.getElementById('registro-form');
+      const tableBody = document.querySelector('#registros-table tbody');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const alumno = document.getElementById('alumno').value;
+        const grado = document.getElementById('grado').value;
+        const fecha = document.getElementById('fecha').value;
+        const hora = document.getElementById('hora').value;
+        const motivo = document.getElementById('motivo').value;
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${alumno}</td><td>${grado}</td><td>${fecha}</td><td>${hora}</td><td>${motivo}</td>`;
+        tableBody.appendChild(row);
+        form.reset();
+      });
+    </script>
 </body>
 </html>
