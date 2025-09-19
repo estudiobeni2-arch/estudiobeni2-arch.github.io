@@ -37,7 +37,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(52, 152, 219, 0.9); /* Fondo semi-transparente con nuevo azul */
+      background: rgba(52, 152, 219, 0.9);
       z-index: 1000;
       padding: 15px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -112,15 +112,6 @@
     .testimonio p { font-style: italic; color: var(--text); }
     .testimonio cite { display: block; margin-top: 10px; font-weight: 600; color: var(--primary); }
 
-    .cta {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      padding: 80px 0;
-      text-align: center;
-      color: #FFFFFF;
-    }
-    .cta h2 { margin-bottom: 20px; }
-    .cta .btn { background: #FFFFFF; color: var(--primary); }
-
     .beneficios ul { list-style: none; padding: 0; display: grid; gap: 30px; margin: 60px 0; }
     .beneficios li { padding-left: 50px; position: relative; font-family: 'Open Sans'; font-size: 18px; }
     .beneficios li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); font-size: 28px; }
@@ -128,7 +119,7 @@
     .table-container { overflow-x: auto; margin-top: 30px; }
     .filter-input { width: 100%; max-width: 300px; padding: 12px; margin-bottom: 20px; border: 1px solid var(--muted); border-radius: var(--radius); font-size: 16px; background: rgba(255,255,255,0.9); }
     table { width: 100%; border-collapse: collapse; font-family: 'Open Sans'; font-size: 16px; }
-    th, td { padding: 18px; border: 1px solid rgba(41, 128, 185, 0.2); text-align: left; } /* Ajuste de borde */
+    th, td { padding: 18px; border: 1px solid rgba(41, 128, 185, 0.2); text-align: left; }
     th { background: rgba(255,255,255,0.9); color: var(--muted); font-weight: 600; }
     tbody tr { transition: background 0.3s; }
     tbody tr:hover { background: linear-gradient(90deg, var(--primary), transparent); }
@@ -343,14 +334,6 @@
         </div>
       </div>
     </section>
-
-    <section class="cta" id="cta" data-aos="fade-up">
-      <div class="container">
-        <h2>¡Transforma tu Colegio Hoy!</h2>
-        <p>Regístrate o contáctanos para una demostración gratuita.</p>
-        <a href="#contacto" class="btn">Contactar Ahora</a>
-      </div>
-    </section>
   </main>
 
   <footer id="contacto" data-aos="fade-up">
@@ -384,7 +367,10 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    AOS.init({
+      once: false, // Las animaciones no se repetirán al subir y bajar
+      duration: 800, // Duración suave de las animaciones
+    });
 
     // Fecha en footer
     const hoy = new Date();
