@@ -40,7 +40,9 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(52, 152, 219, 0.9);
+      background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(41, 128, 185, 0.7)), url('/header.jpg');
+      background-size: cover;
+      background-position: center;
       z-index: 1000;
       padding: 15px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -138,7 +140,9 @@
     .clear-btn:hover { background: #B0C4DE; }
 
     footer {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(41, 128, 185, 0.7)), url('/footer.jpg');
+      background-size: cover;
+      background-position: center;
       padding: 120px 0;
       text-align: center;
       width: 100%;
@@ -173,9 +177,9 @@
       th, td { padding: 12px; }
       footer form { max-width: 100%; }
       section { padding: 60px 0; }
-      header { padding: 10px 0; }
+      header { padding: 10px 0; background-size: contain; }
       .hero { padding: 100px 0 60px; margin-top: 50px; }
-      footer { padding: 60px 0; }
+      footer { padding: 60px 0; background-size: contain; }
       .container { padding: 0 10px; }
     }
   </style>
