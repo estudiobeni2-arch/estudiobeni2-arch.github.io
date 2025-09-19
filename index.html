@@ -8,14 +8,14 @@
   <title>ExitSmart - Control Inteligente de Salidas - EstudioBeni</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS para animaciones -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #FF6F61; /* Coral cálido */
-      --secondary: #6D8299; /* Azul grisáceo suave */
-      --bg: #F5F7FA; /* Gris claro luminoso */
-      --text: #2D3436; /* Gris oscuro para texto */
-      --muted: #636E72; /* Gris medio suave */
+      --primary: #1E90FF; /* Azul dodger */
+      --secondary: #4682B4; /* Azul acero */
+      --bg: #F0F4F8; /* Azul claro suave */
+      --text: #2C3E50; /* Azul grisáceo oscuro */
+      --muted: #7F8C8D; /* Azul grisáceo medio */
       --radius: 16px;
       font-family: 'Poppins', 'Open Sans', sans-serif;
     }
@@ -30,7 +30,7 @@
     }
     header {
       text-align: center;
-      padding: 120px 5%;
+      padding: 120px 10%;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       position: relative;
       overflow: hidden;
@@ -46,9 +46,9 @@
       z-index: 0;
     }
     header > * { position: relative; z-index: 1; }
-    .logo { width: 120px; height: 120px; margin: 0 auto 30px; border-radius: var(--radius); background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; }
+    .logo { width: 120px; height: 120px; margin: 0 auto 40px; border-radius: var(--radius); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; }
     .logo img { width: 100px; height: 100px; object-fit: contain; }
-    h1 { font-size: 56px; font-weight: 700; letter-spacing: 1px; color: #FFFFFF; animation: slideUp 1s ease-out; }
+    h1 { font-size: 56px; font-weight: 700; letter-spacing: 1px; color: #FFFFFF; margin-bottom: 20px; animation: slideUp 1s ease-out; }
     .subtitle { font-size: 22px; font-family: 'Open Sans'; color: #FFFFFF; margin: 20px 0; animation: fadeIn 1.2s ease-out; }
     .btn {
       display: inline-block; padding: 16px 40px; background: var(--secondary); color: #FFFFFF;
@@ -58,7 +58,7 @@
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
     section {
-      padding: 80px 5%;
+      padding: 100px 10%;
       width: 100%;
     }
     .card {
@@ -66,14 +66,14 @@
       padding: 0;
       border-radius: 0;
       border: none;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       box-shadow: none;
       animation: slideUp 0.8s ease-out;
     }
-    h2 { font-size: 36px; font-weight: 600; margin-bottom: 25px; color: var(--primary); }
-    p { font-family: 'Open Sans'; color: var(--muted); line-height: 1.8; margin-bottom: 40px; }
+    h2 { font-size: 36px; font-weight: 600; margin-bottom: 30px; color: var(--primary); }
+    p { font-family: 'Open Sans'; color: var(--muted); line-height: 1.8; }
 
-    .estadisticas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; }
+    .estadisticas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin: 60px 0; }
     .estadistica {
       background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 30px; border-radius: 12px;
       text-align: center; color: #FFFFFF; transition: transform 0.3s, box-shadow 0.3s;
@@ -82,45 +82,47 @@
     .estadistica strong { font-size: 3.5em; font-weight: 700; display: block; }
     .estadistica span { font-size: 18px; font-family: 'Open Sans'; }
 
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-    .feature { background: rgba(255,255,255,0.6); padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; }
+    .chart-container { max-width: 600px; margin: 40px auto; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 60px 0; }
+    .feature { background: rgba(255,255,255,0.8); padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; }
     .feature:hover { transform: translateY(-10px); }
     .feature i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
     .feature h3 { font-size: 22px; font-weight: 600; margin-bottom: 15px; }
     .feature p { font-size: 16px; }
 
-    .beneficios ul { list-style: none; padding: 0; display: grid; gap: 20px; }
+    .beneficios ul { list-style: none; padding: 0; display: grid; gap: 30px; margin: 60px 0; }
     .beneficios li { padding-left: 50px; position: relative; font-family: 'Open Sans'; font-size: 18px; }
     .beneficios li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); font-size: 28px; }
 
-    .table-container { margin-top: 30px; position: relative; }
-    .filter-input { width: 100%; max-width: 300px; padding: 10px; margin-bottom: 10px; border: 1px solid var(--muted); border-radius: var(--radius); font-size: 16px; }
+    .table-container { overflow-x: auto; margin-top: 30px; position: relative; }
+    .filter-input { width: 100%; max-width: 300px; padding: 12px; margin-bottom: 20px; border: 1px solid var(--muted); border-radius: var(--radius); font-size: 16px; background: rgba(255,255,255,0.9); }
     table { width: 100%; border-collapse: collapse; font-family: 'Open Sans'; font-size: 16px; }
-    th, td { padding: 18px; border: 1px solid rgba(109, 130, 153, 0.1); text-align: left; }
-    th { background: rgba(255,255,255,0.6); color: var(--muted); font-weight: 600; }
+    th, td { padding: 18px; border: 1px solid rgba(70, 130, 180, 0.2); text-align: left; }
+    th { background: rgba(255,255,255,0.9); color: var(--muted); font-weight: 600; }
     tbody tr { transition: background 0.3s; }
     tbody tr:hover { background: linear-gradient(90deg, var(--primary), transparent); }
-    tbody tr.highlight { background: rgba(255, 111, 97, 0.2); }
+    tbody tr.highlight { background: rgba(30, 144, 255, 0.2); }
 
-    .formulario form { display: grid; gap: 20px; max-width: 700px; margin: 30px auto; }
+    .formulario form { display: grid; gap: 20px; max-width: 700px; margin: 60px auto; }
     .formulario label { font-size: 18px; font-weight: 600; color: var(--primary); }
-    .formulario input, .formulario select { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: rgba(255,255,255,0.8); color: var(--text); font-size: 16px; }
+    .formulario input, .formulario select { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: rgba(255,255,255,0.9); color: var(--text); font-size: 16px; }
     .formulario input:focus, .formulario select:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 8px var(--secondary); }
     .formulario button { background: var(--primary); color: #FFFFFF; padding: 16px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
     .formulario button:hover { background: var(--secondary); }
     .clear-btn { background: var(--muted); margin-top: 10px; }
-    .clear-btn:hover { background: #B2BEC3; }
+    .clear-btn:hover { background: #B0C4DE; }
 
     footer {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 80px 5%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 100px 10%;
       text-align: center; width: 100%;
     }
-    footer form { max-width: 700px; margin: 30px auto; display: grid; gap: 20px; }
-    footer input, footer textarea { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: rgba(255,255,255,0.8); color: var(--text); font-size: 16px; }
+    footer form { max-width: 700px; margin: 40px auto; display: grid; gap: 20px; }
+    footer input, footer textarea { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: rgba(255,255,255,0.9); color: var(--text); font-size: 16px; }
     footer textarea { resize: vertical; min-height: 120px; }
     footer button { background: var(--secondary); color: #FFFFFF; padding: 16px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; }
     footer button:hover { background: var(--primary); }
-    .social-icons { margin: 30px 0; }
+    .social-icons { margin: 40px 0; }
     .social-icons a { color: #FFFFFF; margin: 0 20px; font-size: 32px; transition: color 0.3s; }
     .social-icons a:hover { color: var(--primary); }
     .small { font-size: 16px; font-family: 'Open Sans'; color: #FFFFFF; margin-top: 10px; }
@@ -138,6 +140,9 @@
       table { font-size: 14px; }
       th, td { padding: 12px; }
       footer form { max-width: 100%; }
+      section { padding: 60px 5%; }
+      header { padding: 80px 5%; }
+      footer { padding: 60px 5%; }
     }
   </style>
 </head>
@@ -159,6 +164,9 @@
         <div class="estadistica" data-aos="zoom-in"><strong>+95%</strong><span>Precisión en Registros</span></div>
         <div class="estadistica" data-aos="zoom-in"><strong>+80%</strong><span>Reducción de Tiempo</span></div>
         <div class="estadistica" data-aos="zoom-in"><strong>+100%</strong><span>Cumplimiento de Normas</span></div>
+      </div>
+      <div class="chart-container">
+        <canvas id="metricsChart"></canvas>
       </div>
     </section>
 
@@ -280,8 +288,9 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
   <script>
-    AOS.init(); // Inicializar animaciones AOS
+    AOS.init();
 
     // Fecha en footer
     const hoy = new Date();
@@ -320,8 +329,21 @@
       }
     }
 
-    // Limpiar formulario (ya manejado por el botón)
+    // Gráfico de métricas con Chart.js
+    const ctx = document.getElementById('metricsChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Precisión en Registros', 'Reducción de Tiempo', 'Cumplimiento de Normas'],
+        datasets: [{
+          data: [95, 80, 100],
+          backgroundColor: ['#1E90FF', '#4682B4', '#2C3E50']
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
   </script>
 </body>
 </html>
-
