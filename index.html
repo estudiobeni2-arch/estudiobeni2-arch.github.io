@@ -20,6 +20,9 @@
       font-family: 'Poppins', 'Open Sans', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth; /* Desplazamiento suave por defecto */
+    }
     body {
       background: var(--bg) url('https://www.transparenttextures.com/patterns/rice-paper.png');
       color: var(--text);
@@ -185,11 +188,11 @@
       </div>
       <nav>
         <ul class="nav-menu">
-          <li><a href="#soluciones">Soluciones</a></li>
-          <li><a href="#funcionalidades">Funcionalidades</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#ejemplo">Ejemplo</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#soluciones" class="smooth-scroll">Soluciones</a></li>
+          <li><a href="#funcionalidades" class="smooth-scroll">Funcionalidades</a></li>
+          <li><a href="#beneficios" class="smooth-scroll">Beneficios</a></li>
+          <li><a href="#ejemplo" class="smooth-scroll">Ejemplo</a></li>
+          <li><a href="#contacto" class="smooth-scroll">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -199,7 +202,7 @@
     <div class="container">
       <h1>ExitSmart: Control Inteligente de Salidas</h1>
       <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
-      <a href="#contacto" class="btn">Descubre Más</a>
+      <a href="#contacto" class="btn smooth-scroll">Descubre Más</a>
     </div>
   </div>
 
@@ -350,10 +353,10 @@
         <button type="submit" class="btn">Enviar</button>
       </form>
       <div class="footer-links">
-        <a href="#soluciones">Soluciones</a>
-        <a href="#funcionalidades">Funcionalidades</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#soluciones" class="smooth-scroll">Soluciones</a>
+        <a href="#funcionalidades" class="smooth-scroll">Funcionalidades</a>
+        <a href="#beneficios" class="smooth-scroll">Beneficios</a>
+        <a href="#contacto" class="smooth-scroll">Contacto</a>
       </div>
       <div class="social-icons">
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -368,8 +371,8 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      once: false, // Las animaciones no se repetirán al subir y bajar
-      duration: 800, // Duración suave de las animaciones
+      once: false,
+      duration: 800,
     });
 
     // Fecha en footer
@@ -408,6 +411,18 @@
         rows[i].style.display = text.includes(filter) ? '' : 'none';
       }
     }
+
+    // Desplazamiento suave para enlaces
+    document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Desplazamiento suave
+        }
+      });
+    });
   </script>
 </body>
 </html>
