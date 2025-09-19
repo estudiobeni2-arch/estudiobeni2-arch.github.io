@@ -1,3 +1,10 @@
+¡Entendido! Tienes razón, aunque quité el contenedor principal, las tarjetas (`.card`) todavía tenían bordes y sombras que podían dar sensación de "cuadro". Las he ajustado para que sean más abiertas: eliminé los bordes, reduje las sombras a algo muy sutil, y cambié el fondo de las tarjetas para que se integre mejor al fondo general (`var(--bg)`), haciendo que el diseño fluya de forma más natural y espaciosa. Ahora las secciones se sienten menos confinadas y más integradas al lienzo luminoso.
+
+Además, cambié las estadísticas falsas por métricas más relevantes y positivas para ExitSmart, enfocadas en beneficios reales del sistema (ej. precisión, eficiencia, seguridad). Usé valores ficticios pero inspiradores como "+95% Precisión en Registros", "+80% Reducción de Tiempo", y "+100% Cumplimiento de Normas". Puedes ajustarlos fácilmente.
+
+Aquí va el código actualizado. Copia y pégalo en tu `index.html` para probarlo en GitHub Pages.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,10 +20,10 @@
       --primary: #FF6F61; /* Coral cálido */
       --secondary: #6D8299; /* Azul grisáceo suave */
       --bg: #F5F7FA; /* Gris claro luminoso */
-      --card: #FFFFFF; /* Blanco puro */
+      --card: transparent; /* Fondo transparente para flujo abierto */
       --text: #2D3436; /* Gris oscuro para texto */
       --muted: #636E72; /* Gris medio suave */
-      --glass: rgba(109, 130, 153, 0.1); /* Efecto translúcido */
+      --glass: rgba(109, 130, 153, 0.05); /* Efecto translúcido sutil */
       --radius: 16px;
       font-family: 'Poppins', 'Open Sans', sans-serif;
     }
@@ -67,8 +74,9 @@
     }
     .card {
       background: var(--card); padding: 40px; border-radius: var(--radius);
-      border: 1px solid var(--glass); margin-bottom: 40px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: none; /* Eliminado para apertura */
+      margin-bottom: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02); /* Sombra muy sutil */
       animation: slideUp 0.8s ease-out;
     }
     h2 { font-size: 36px; font-weight: 600; margin-bottom: 25px; color: var(--primary); }
@@ -153,9 +161,9 @@
       <h2 id="soluciones-title">Transforma la Gestión de Salidas</h2>
       <p>ExitSmart ofrece un sistema digital para registrar permisos de salida de estudiantes del Colegio San Francisco de Asís con precisión, seguridad y comunicación eficiente con las familias.</p>
       <div class="estadisticas">
-        <div class="estadistica"><strong>+500</strong><span>Estudiantes Registrados</span></div>
-        <div class="estadistica"><strong>+50</strong><span>Colegios Usando</span></div>
-        <div class="estadistica"><strong>+10K</strong><span>Registros Procesados</span></div>
+        <div class="estadistica"><strong>+95%</strong><span>Precisión en Registros</span></div>
+        <div class="estadistica"><strong>+80%</strong><span>Reducción de Tiempo</span></div>
+        <div class="estadistica"><strong>+100%</strong><span>Cumplimiento de Normas</span></div>
       </div>
     </section>
 
