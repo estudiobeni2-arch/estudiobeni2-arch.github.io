@@ -30,20 +30,14 @@
       padding: 20px;
       overflow-x: hidden;
     }
-    .wrapper {
-      max-width: 1280px;
-      margin: 0 auto;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
     header {
       text-align: center;
       padding: 120px 20px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       position: relative;
       overflow: hidden;
+      max-width: 1280px;
+      margin: 0 auto;
     }
     header::before {
       content: '';
@@ -66,10 +60,15 @@
     }
     .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-    section { padding: 80px 20px; }
+    section {
+      padding: 80px 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
     .card {
       background: var(--card); padding: 40px; border-radius: var(--radius);
       border: 1px solid var(--glass); margin-bottom: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       animation: slideUp 0.8s ease-out;
     }
     h2 { font-size: 36px; font-weight: 600; margin-bottom: 25px; color: var(--primary); }
@@ -109,7 +108,10 @@
     .formulario button { background: var(--primary); color: #FFFFFF; padding: 16px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
     .formulario button:hover { background: var(--secondary); }
 
-    footer { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 80px 20px; text-align: center; }
+    footer {
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 80px 20px;
+      text-align: center; max-width: 1280px; margin: 0 auto;
+    }
     footer form { max-width: 700px; margin: 30px auto; display: grid; gap: 20px; }
     footer input, footer textarea { padding: 15px; border-radius: 10px; border: 1px solid var(--muted); background: var(--card); color: var(--text); font-size: 16px; }
     footer textarea { resize: vertical; min-height: 120px; }
@@ -123,7 +125,6 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @media (max-width: 1024px) {
-      .wrapper { margin: 10px; }
       .estadisticas { grid-template-columns: 1fr 1fr; }
       .features { grid-template-columns: 1fr 1fr; }
     }
@@ -138,169 +139,168 @@
   </style>
 </head>
 <body>
-  <div class="wrapper" role="document">
-    <header>
-      <div class="logo" aria-hidden="true">
-        <img src="https://via.placeholder.com/100" alt="Logo EstudioBeni">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <img src="https://via.placeholder.com/100" alt="Logo EstudioBeni">
+    </div>
+    <h1>ExitSmart: Control Inteligente de Salidas</h1>
+    <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
+    <a href="#contacto" class="btn">Descubre Más</a>
+  </header>
+
+  <main>
+    <section class="card" id="soluciones" aria-labelledby="soluciones-title">
+      <h2 id="soluciones-title">Transforma la Gestión de Salidas</h2>
+      <p>ExitSmart ofrece un sistema digital para registrar permisos de salida de estudiantes del Colegio San Francisco de Asís con precisión, seguridad y comunicación eficiente con las familias.</p>
+      <div class="estadisticas">
+        <div class="estadistica"><strong>+500</strong><span>Estudiantes Registrados</span></div>
+        <div class="estadistica"><strong>+50</strong><span>Colegios Usando</span></div>
+        <div class="estadistica"><strong>+10K</strong><span>Registros Procesados</span></div>
       </div>
-      <h1>ExitSmart: Control Inteligente de Salidas</h1>
-      <div class="subtitle">Simplifica la gestión de permisos en tu colegio con tecnología avanzada</div>
-      <a href="#contacto" class="btn">Descubre Más</a>
-    </header>
+    </section>
 
-    <main>
-      <section class="card" id="soluciones" aria-labelledby="soluciones-title">
-        <h2 id="soluciones-title">Transforma la Gestión de Salidas</h2>
-        <p>ExitSmart ofrece un sistema digital para registrar permisos de salida de estudiantes del Colegio San Francisco de Asís con precisión, seguridad y comunicación eficiente con las familias.</p>
-        <div class="estadisticas">
-          <div class="estadistica"><strong>+500</strong><span>Estudiantes Registrados</span></div>
-          <div class="estadistica"><strong>+50</strong><span>Colegios Usando</span></div>
-          <div class="estadistica"><strong>+10K</strong><span>Registros Procesados</span></div>
+    <section class="card" id="funcionalidades" aria-labelledby="funcionalidades-title">
+      <h2 id="funcionalidades-title">Funcionalidades Clave</h2>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-user-plus"></i>
+          <h3>Registro por Estudiante</h3>
+          <p>Ingresa datos como nombre, grado y motivo de salida de forma rápida.</p>
         </div>
-      </section>
-
-      <section class="card" id="funcionalidades" aria-labelledby="funcionalidades-title">
-        <h2 id="funcionalidades-title">Funcionalidades Clave</h2>
-        <div class="features">
-          <div class="feature">
-            <i class="fas fa-user-plus"></i>
-            <h3>Registro por Estudiante</h3>
-            <p>Ingresa datos como nombre, grado y motivo de salida de forma rápida.</p>
-          </div>
-          <div class="feature">
-            <i class="fas fa-calendar-alt"></i>
-            <h3>Historial por Fecha</h3>
-            <p>Consulta y filtra registros por fecha para un seguimiento claro.</p>
-          </div>
-          <div class="feature">
-            <i class="fas fa-lock"></i>
-            <h3>Motivo y Autorización</h3>
-            <p>Registra motivos y verifica autorizaciones para mayor seguridad.</p>
-          </div>
-          <div class="feature">
-            <i class="fas fa-file-export"></i>
-            <h3>Exportación de Datos</h3>
-            <p>Genera reportes en CSV o PDF para compartir con directivos.</p>
-          </div>
+        <div class="feature">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Historial por Fecha</h3>
+          <p>Consulta y filtra registros por fecha para un seguimiento claro.</p>
         </div>
-      </section>
-
-      <section class="card" id="beneficios" aria-labelledby="beneficios-title">
-        <h2 id="beneficios-title">Ventajas de ExitSmart</h2>
-        <div class="beneficios">
-          <ul>
-            <li><strong>Precisión Total</strong>: Registros digitales sin errores manuales.</li>
-            <li><strong>Seguridad Garantizada</strong>: Solo salidas autorizadas se registran.</li>
-            <li><strong>Comunicación Fluida</strong>: Historiales claros para familias.</li>
-            <li><strong>Eficiencia</strong>: Proceso rápido que reduce demoras.</li>
-            <li><strong>Control Completo</strong>: Reportes para analizar patrones.</li>
-            <li><strong>Escalabilidad</strong>: Adaptable a colegios de cualquier tamaño.</li>
-          </ul>
+        <div class="feature">
+          <i class="fas fa-lock"></i>
+          <h3>Motivo y Autorización</h3>
+          <p>Registra motivos y verifica autorizaciones para mayor seguridad.</p>
         </div>
-      </section>
-
-      <section class="card" id="ejemplo" aria-labelledby="ejemplo-title">
-        <h2 id="ejemplo-title">Ejemplo de Registro</h2>
-        <p>Visualiza cómo ExitSmart organiza las salidas de estudiantes:</p>
-        <div class="table-container">
-          <table id="registros-table">
-            <thead>
-              <tr><th>Alumno</th><th>Grado</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>María López</td><td>10°A</td><td>2025-09-12</td><td>10:45</td><td>Cita médica</td></tr>
-              <tr><td>Carlos Díaz</td><td>8°B</td><td>2025-09-12</td><td>11:10</td><td>Permiso familiar</td></tr>
-              <tr><td>Sofía Pérez</td><td>11°C</td><td>2025-09-11</td><td>09:30</td><td>Salida programada</td></tr>
-            </tbody>
-          </table>
+        <div class="feature">
+          <i class="fas fa-file-export"></i>
+          <h3>Exportación de Datos</h3>
+          <p>Genera reportes en CSV o PDF para compartir con directivos.</p>
         </div>
-        <!-- Placeholder para imagen -->
-        <!-- <img src="https://via.placeholder.com/600x300" alt="Interfaz de ExitSmart mostrando registros" style="width:100%; margin-top:20px; border-radius:10px; animation: fadeIn 1s ease-out;"> -->
-      </section>
+      </div>
+    </section>
 
-      <section class="card formulario" id="formulario" aria-labelledby="formulario-title">
-        <h2 id="formulario-title">Registrar Nueva Salida</h2>
-        <form id="registro-form">
-          <label for="alumno">Alumno</label>
-          <input type="text" id="alumno" required aria-required="true" placeholder="Ej. Juan Pérez">
-          <label for="grado">Grado</label>
-          <select id="grado" required aria-required="true">
-            <option value="" disabled selected>Selecciona un grado</option>
-            <option value="8°B">8°B</option>
-            <option value="10°A">10°A</option>
-            <option value="11°C">11°C</option>
-          </select>
-          <label for="fecha">Fecha</label>
-          <input type="date" id="fecha" required aria-required="true">
-          <label for="hora">Hora</label>
-          <input type="time" id="hora" required aria-required="true">
-          <label for="motivo">Motivo</label>
-          <input type="text" id="motivo" required aria-required="true" placeholder="Ej. Cita médica">
-          <button type="submit" class="btn">Agregar Registro</button>
-        </form>
-      </section>
+    <section class="card" id="beneficios" aria-labelledby="beneficios-title">
+      <h2 id="beneficios-title">Ventajas de ExitSmart</h2>
+      <div class="beneficios">
+        <ul>
+          <li><strong>Precisión Total</strong>: Registros digitales sin errores manuales.</li>
+          <li><strong>Seguridad Garantizada</strong>: Solo salidas autorizadas se registran.</li>
+          <li><strong>Comunicación Fluida</strong>: Historiales claros para familias.</li>
+          <li><strong>Eficiencia</strong>: Proceso rápido que reduce demoras.</li>
+          <li><strong>Control Completo</strong>: Reportes para analizar patrones.</li>
+          <li><strong>Escalabilidad</strong>: Adaptable a colegios de cualquier tamaño.</li>
+        </ul>
+      </div>
+    </section>
 
-      <section class="card" id="diseño" aria-labelledby="diseño-title">
-        <h2 id="diseño-title">Diseño de Alta Calidad</h2>
-        <p>ExitSmart combina estética y funcionalidad con:</p>
-        <div class="beneficios">
-          <ul>
-            <li><strong>Estilo Moderno</strong>: Gradientes vibrantes y animaciones suaves.</li>
-            <li><strong>Interfaz Clara</strong>: Navegación intuitiva y fácil de usar.</li>
-            <li><strong>Texto Atractivo</strong>: Fuentes elegantes y espaciado perfecto.</li>
-            <li><strong>Adaptabilidad</strong>: Funciona en cualquier dispositivo.</li>
-            <li><strong>Accesibilidad</strong>: Diseñado para todos los usuarios.</li>
-          </ul>
-        </div>
-        <!-- Placeholder para imagen -->
-        <!-- <img src="https://via.placeholder.com/600x300" alt="Diseño de ExitSmart en acción" style="width:100%; margin-top:20px; border-radius:10px; animation: fadeIn 1s ease-out;"> -->
-      </section>
-    </main>
+    <section class="card" id="ejemplo" aria-labelledby="ejemplo-title">
+      <h2 id="ejemplo-title">Ejemplo de Registro</h2>
+      <p>Visualiza cómo ExitSmart organiza las salidas de estudiantes:</p>
+      <div class="table-container">
+        <table id="registros-table">
+          <thead>
+            <tr><th>Alumno</th><th>Grado</th><th>Fecha</th><th>Hora</th><th>Motivo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>María López</td><td>10°A</td><td>2025-09-12</td><td>10:45</td><td>Cita médica</td></tr>
+            <tr><td>Carlos Díaz</td><td>8°B</td><td>2025-09-12</td><td>11:10</td><td>Permiso familiar</td></tr>
+            <tr><td>Sofía Pérez</td><td>11°C</td><td>2025-09-11</td><td>09:30</td><td>Salida programada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Placeholder para imagen -->
+      <!-- <img src="https://via.placeholder.com/600x300" alt="Interfaz de ExitSmart mostrando registros" style="width:100%; margin-top:20px; border-radius:10px; animation: fadeIn 1s ease-out;"> -->
+    </section>
 
-    <footer id="contacto">
-      <h2>Contáctanos</h2>
-      <p>¿Te interesa implementar ExitSmart en tu colegio? ¡Escríbenos!</p>
-      <form>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" required aria-required="true" placeholder="Tu nombre">
-        <label for="email">Correo</label>
-        <input type="email" id="email" required aria-required="true" placeholder="tu@correo.com">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" required aria-required="true" placeholder="Escribe tu mensaje"></textarea>
-        <button type="submit" class="btn">Enviar</button>
+    <section class="card formulario" id="formulario" aria-labelledby="formulario-title">
+      <h2 id="formulario-title">Registrar Nueva Salida</h2>
+      <form id="registro-form">
+        <label for="alumno">Alumno</label>
+        <input type="text" id="alumno" required aria-required="true" placeholder="Ej. Juan Pérez">
+        <label for="grado">Grado</label>
+        <select id="grado" required aria-required="true">
+          <option value="" disabled selected>Selecciona un grado</option>
+          <option value="8°B">8°B</option>
+          <option value="10°A">10°A</option>
+          <option value="11°C">11°C</option>
+        </select>
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" required aria-required="true">
+        <label for="hora">Hora</label>
+        <input type="time" id="hora" required aria-required="true">
+        <label for="motivo">Motivo</label>
+        <input type="text" id="motivo" required aria-required="true" placeholder="Ej. Cita médica">
+        <button type="submit" class="btn">Agregar Registro</button>
       </form>
-      <div class="social-icons">
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </section>
+
+    <section class="card" id="diseño" aria-labelledby="diseño-title">
+      <h2 id="diseño-title">Diseño de Alta Calidad</h2>
+      <p>ExitSmart combina estética y funcionalidad con:</p>
+      <div class="beneficios">
+        <ul>
+          <li><strong>Estilo Moderno</strong>: Gradientes vibrantes y animaciones suaves.</li>
+          <li><strong>Interfaz Clara</strong>: Navegación intuitiva y fácil de usar.</li>
+          <li><strong>Texto Atractivo</strong>: Fuentes elegantes y espaciado perfecto.</li>
+          <li><strong>Adaptabilidad</strong>: Funciona en cualquier dispositivo.</li>
+          <li><strong>Accesibilidad</strong>: Diseñado para todos los usuarios.</li>
+        </ul>
       </div>
-      <p class="small">© 2025 EstudioBeni - Proyecto SENA. Todos los derechos reservados.</p>
-      <p class="small" id="fecha"></p>
-    </footer>
+      <!-- Placeholder para imagen -->
+      <!-- <img src="https://via.placeholder.com/600x300" alt="Diseño de ExitSmart en acción" style="width:100%; margin-top:20px; border-radius:10px; animation: fadeIn 1s ease-out;"> -->
+    </section>
+  </main>
 
-    <script>
-      // Fecha en footer
-      const hoy = new Date();
-      const opciones = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Bogota' };
-      document.getElementById("fecha").innerHTML = hoy.toLocaleDateString('es-ES', opciones) + ' -05';
+  <footer id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Te interesa implementar ExitSmart en tu colegio? ¡Escríbenos!</p>
+    <form>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" required aria-required="true" placeholder="Tu nombre">
+      <label for="email">Correo</label>
+      <input type="email" id="email" required aria-required="true" placeholder="tu@correo.com">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" required aria-required="true" placeholder="Escribe tu mensaje"></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p class="small">© 2025 EstudioBeni - Proyecto SENA. Todos los derechos reservados.</p>
+    <p class="small" id="fecha"></p>
+  </footer>
 
-      // Agregar registros a la tabla
-      const form = document.getElementById('registro-form');
-      const tableBody = document.querySelector('#registros-table tbody');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const alumno = document.getElementById('alumno').value;
-        const grado = document.getElementById('grado').value;
-        const fecha = document.getElementById('fecha').value;
-        const hora = document.getElementById('hora').value;
-        const motivo = document.getElementById('motivo').value;
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${alumno}</td><td>${grado}</td><td>${fecha}</td><td>${hora}</td><td>${motivo}</td>`;
-        row.style.animation = 'fadeIn 0.5s ease-out';
-        tableBody.appendChild(row);
-        form.reset();
-      });
-    </script>
+  <script>
+    // Fecha en footer
+    const hoy = new Date();
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Bogota' };
+    document.getElementById("fecha").innerHTML = hoy.toLocaleDateString('es-ES', opciones) + ' -05';
+
+    // Agregar registros a la tabla
+    const form = document.getElementById('registro-form');
+    const tableBody = document.querySelector('#registros-table tbody');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const alumno = document.getElementById('alumno').value;
+      const grado = document.getElementById('grado').value;
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+      const motivo = document.getElementById('motivo').value;
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${alumno}</td><td>${grado}</td><td>${fecha}</td><td>${hora}</td><td>${motivo}</td>`;
+      row.style.animation = 'fadeIn 0.5s ease-out';
+      tableBody.appendChild(row);
+      form.reset();
+    });
+  </script>
 </body>
 </html>
 
