@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExitSmart - Iniciar sesión</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+    <!-- Panel izquierdo -->
+    <div class="login-panel">
+      <img src="logo-exitsmart.png" alt="ExitSmart Logo" class="logo">
+
+      <h1>Bienvenido a ExitSmart</h1>
+      <p class="subtitle">Registra y gestiona las salidas tempranas de tus alumnos de forma segura y rápida.</p>
+
+      <form>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="profesor@colegio.edu" required />
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Recordarme datos de inicio de sesion</label>
+        </div>
+
+        <button type="submit" class="btn-login">Iniciar sesión</button>
+      </form>
+
+      <div class="links">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <a href="register.html" class="signup-link">¿No tienes cuenta? Regístrate aquí →</a>
+      </div>
+    </div>
+
+    <!-- Panel derecho -->
+    <div class="illustration-panel">
+      <img src="dibujo.jpg" alt="Estudiante saliendo" class="illustration" />
+      <div class="big-text">EXITSMART</div>
+    </div>
+  </div>
+
+</body>
+</html>
